@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Threading.Tasks;
-using Windows.ApplicationModel.Background;
 using GrovePi;
-using GrovePi.Sensors;
+using Windows.ApplicationModel.Background;
 
 namespace Driver
 {
@@ -12,23 +10,7 @@ namespace Driver
 
         public void Run(IBackgroundTaskInstance taskInstance)
         {
-            var led = _deviceFactory.Led(Pin.DigitalPin5);
-            var rotaryAngleSensor = _deviceFactory.RotaryAngleSensor(Pin.AnalogPin2);
-            var maxValue = 255;
-            while (true)
-            {
-                try
-                {
-                    var sensorValue = rotaryAngleSensor.SensorValue();
-                    led.AnalogWrite((byte)(sensorValue > maxValue ? maxValue : sensorValue));
-                    Task.Delay(500).Wait();
-                }
-                catch (Exception)
-                {
-
-                    throw;
-                }
-            }
+            SixAxisAccelerometerAndCompassDemo.Run(_deviceFactory);
         }
     }
 }

@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="SimpleDriver.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SixAxisAccelerometerAndCompassDemo.cs" />
     <Content Include="Properties\client.winU.rd.xml" />
   </ItemGroup>
   <ItemGroup>
